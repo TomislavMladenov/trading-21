@@ -22,6 +22,7 @@ import com.example.trading21.base.presentation.navigation.NavigationManager
 import com.example.trading21.base.presentation.ui.theme.Trading21Theme
 import com.example.trading21.feature.stock.presentation.details.StockDetailsScreen
 import com.example.trading21.feature.stock.presentation.list.StockListScreen
+import com.example.trading21.feature.topbar.topbar.Trading21AppTopbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
@@ -50,7 +51,7 @@ private fun RootComposable(navigationManager: NavigationManager) {
 
     Scaffold(
         topBar = {
-            // TODO
+            Trading21AppTopbar(navController, navController::navigateUp)
         }
     ) { paddingValues ->
         NavHost(

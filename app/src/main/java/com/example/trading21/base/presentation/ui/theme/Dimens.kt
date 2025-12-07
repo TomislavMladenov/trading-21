@@ -9,9 +9,9 @@ class Dimensions(
     val space_1: Dp = 8.dp,
     val space_1_5: Dp = 12.dp,
     val space_2: Dp = 16.dp,
-    val minimumTouchTarget: Dp = 48.dp,
-    val iconSize: Dp = 24.dp,
-    val cardViewHeight: Dp = 120.dp,
+    val space_3: Dp = 24.dp,
+    val space_4: Dp = 32.dp,
+    val horizontalPadding: Dp = 24.dp,
 )
 
 val smallDimensions = Dimensions(
@@ -20,9 +20,9 @@ val smallDimensions = Dimensions(
     space_1 = 6.dp,
     space_1_5 = 9.dp,
     space_2 = 12.dp,
-    minimumTouchTarget = 40.dp,
-    iconSize = 24.dp,
-    cardViewHeight = 100.dp
+    space_3 = 18.dp,
+    space_4 = 24.dp,
+    horizontalPadding = 20.dp,
 )
 
 val sw360Dimensions = Dimensions(
@@ -31,9 +31,9 @@ val sw360Dimensions = Dimensions(
     space_1 = 8.dp,
     space_1_5 = 12.dp,
     space_2 = 16.dp,
-    minimumTouchTarget = 48.dp,
-    iconSize = 28.dp,
-    cardViewHeight = 120.dp
+    space_3 = 24.dp,
+    space_4 = 32.dp,
+    horizontalPadding = 24.dp,
 )
 
 val sw600Dimensions = Dimensions(
@@ -42,9 +42,9 @@ val sw600Dimensions = Dimensions(
     space_1 = 12.dp,
     space_1_5 = 16.dp,
     space_2 = 20.dp,
-    minimumTouchTarget = 48.dp,
-    iconSize = 28.dp,
-    cardViewHeight = 120.dp
+    space_3 = 28.dp,
+    space_4 = 36.dp,
+    horizontalPadding = 26.dp,
 )
 
 val sw940Dimensions = Dimensions(
@@ -52,7 +52,5 @@ val sw940Dimensions = Dimensions(
     space_0_5 = 10.dp,
     space_1 = 15.dp,
     space_2 = 20.dp,
-    minimumTouchTarget = 48.dp,
-    iconSize = 28.dp,
-    cardViewHeight = 160.dp
+    horizontalPadding = 28.dp,
 )

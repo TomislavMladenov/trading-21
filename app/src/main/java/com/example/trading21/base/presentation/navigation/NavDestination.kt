@@ -7,6 +7,12 @@ import com.example.trading21.base.presentation.util.Constants
 import kotlin.collections.forEach
 import kotlin.collections.isNotEmpty
 
+val stockDestinations = listOf(
+    NavDestination.StockListView.route,
+    NavDestination.StockDetails().route
+)
+
+
 sealed class NavDestination(
     open val destination: String,
     open val args: Map<String, String> = emptyMap()
@@ -16,7 +22,7 @@ sealed class NavDestination(
     ) : NavDestination(
         destination = "stockDetails",
         args = mapOf(
-            Pair(Constants.NavArgs.STOCK_UUID, vehicleId)
+            Pair(Constants.NavArgs.STOCK_SYMBOL, vehicleId)
         )
     )
 

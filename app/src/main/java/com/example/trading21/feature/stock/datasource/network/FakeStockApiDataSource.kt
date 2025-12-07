@@ -1,9 +1,7 @@
 package com.example.trading21.feature.stock.datasource.network
 
 import com.example.trading21.base.core.util.DispatcherProvider
-import com.example.trading21.base.datasource.network.util.NetworkConstants.STOCKS_URL
 import com.example.trading21.feature.stock.datasource.network.model.StockDto
-import com.example.trading21.feature.stock.domain.model.Stock
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,12 +12,18 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
+import timber.log.Timber
 
 class FakeStockApiDataSource(
     dispatcher: DispatcherProvider,
 ) : StockApiDataSource {
+    private val jsonParser: Json = Json {
+        ignoreUnknownKeys = true
+        isLenient = true
+        encodeDefaults = true
+        explicitNulls = false
+    }
 
-    private val jsonParser: Json = Json { ignoreUnknownKeys = true }
     private val dataProvider: FakeDataProvider = FakeDataProvider(dispatcher, jsonParser)
     private val _stocks = MutableStateFlow(dataProvider.generateInitialStocks())
     override val stocks = _stocks.asStateFlow()
@@ -30,7 +34,7 @@ class FakeStockApiDataSource(
     private var webSocket: WebSocket? = null
 
     override fun connect() {
-        val request = Request.Builder().url(STOCKS_URL).build()
+        val request = Request.Builder().url("wss://ws.postman-echo.com/raw").build()
         webSocket = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 _connectionStatus.value = true
@@ -64,6 +68,7 @@ class FakeStockApiDataSource(
 
     private fun handleMessage(text: String) {
         try {
+            Timber.d("New data: $text")
             val dto = jsonParser.decodeFromString<StockDto>(text)
 
             _stocks.update { currentList ->

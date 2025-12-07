@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Trading 21</string>
+
+    <string name="tv_about">About</string>
+    <string name="tv_start">Start</string>
+    <string name="tv_stop">Stop</string>
+    <string name="action_back">Action back</string>
+    <string name="tv_stock_not_found">Stock Not Found</string>
+    <string name="tv_stock_not_found_message">We could not locate the stock details you were looking for. It may have been delisted or the symbol is incorrect.</string>
 </resources>
