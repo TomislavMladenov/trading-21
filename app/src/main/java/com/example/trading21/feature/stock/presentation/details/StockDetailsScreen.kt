@@ -1,4 +1,4 @@
-package com.example.trading21.feature.stockdetails
+package com.example.trading21.feature.stock.presentation.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

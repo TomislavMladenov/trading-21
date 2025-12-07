@@ -1,4 +1,4 @@
-package com.example.trading21.feature.stocklist
+package com.example.trading21.feature.stock.presentation.details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,13 +7,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.trading21.feature.stocklist.mvi.StockListAction
-import com.example.trading21.feature.stocklist.mvi.StockListState
+import com.example.trading21.feature.stock.presentation.details.mvi.StockDetailsAction
+import com.example.trading21.feature.stock.presentation.details.mvi.StockDetailsState
 
 @Composable
-fun StockListContent(
-    state: StockListState,
-    action: (StockListAction) -> Unit,
+fun StockDetailsContent(
+    state: StockDetailsState,
+    action: (StockDetailsAction) -> Unit,
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),

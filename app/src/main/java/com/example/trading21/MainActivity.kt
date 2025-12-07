@@ -20,12 +20,14 @@ import com.example.trading21.base.presentation.navigation.NavDestination
 import com.example.trading21.base.presentation.navigation.NavigationCommand
 import com.example.trading21.base.presentation.navigation.NavigationManager
 import com.example.trading21.base.presentation.ui.theme.Trading21Theme
-import com.example.trading21.feature.stockdetails.StockDetailsScreen
-import com.example.trading21.feature.stocklist.StockListScreen
+import com.example.trading21.feature.stock.presentation.details.StockDetailsScreen
+import com.example.trading21.feature.stock.presentation.list.StockListScreen
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     @Inject
