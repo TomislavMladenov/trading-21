@@ -7,11 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
@@ -21,7 +19,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.trading21.base.presentation.navigation.NavDestination
 import com.example.trading21.base.presentation.navigation.NavigationCommand
 import com.example.trading21.base.presentation.navigation.NavigationManager
-import com.example.trading21.ui.theme.Trading21Theme
+import com.example.trading21.base.presentation.ui.theme.Trading21Theme
+import com.example.trading21.feature.stockdetails.StockDetailsScreen
+import com.example.trading21.feature.stocklist.StockListScreen
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
 import javax.inject.Inject
@@ -62,10 +62,10 @@ private fun RootComposable(navigationManager: NavigationManager) {
                 route = NavDestination.StockDetails().route,
                 arguments = NavDestination.StockDetails().arguments
             ) {
-               // TODO
+               StockDetailsScreen()
             }
             composable(route = NavDestination.StockListView.route,) {
-                // TODO
+                StockListScreen()
             }
         }
     }
