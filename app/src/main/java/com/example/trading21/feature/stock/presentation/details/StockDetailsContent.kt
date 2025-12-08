@@ -97,7 +97,6 @@ fun StockNotFoundScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // 2. Clear Headline
         Text(
             text = stringResource(R.string.tv_stock_not_found),
             style = MaterialTheme.typography.headlineSmall,
@@ -106,7 +105,6 @@ fun StockNotFoundScreen(
 
         SmallSpacing()
 
-        // 3. Helpful Subtitle
         Text(
             text = stringResource(R.string.tv_stock_not_found_message),
             style = MaterialTheme.typography.bodyMedium,
@@ -116,7 +114,6 @@ fun StockNotFoundScreen(
 
         FillAvailableHeightSpacer()
 
-        // 4. Action Button
         Button(
             onClick = onBackClick
         ) {

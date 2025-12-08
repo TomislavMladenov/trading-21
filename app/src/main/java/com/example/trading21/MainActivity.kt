@@ -46,8 +46,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun RootComposable(navigationManager: NavigationManager) {
-    val navController = rememberNavController()
+fun RootComposable(
+    navigationManager: NavigationManager,
+    navController: NavHostController = rememberNavController()
+) {
 
     Scaffold(
         topBar = {
@@ -65,9 +67,9 @@ private fun RootComposable(navigationManager: NavigationManager) {
                 route = NavDestination.StockDetails().route,
                 arguments = NavDestination.StockDetails().arguments
             ) {
-               StockDetailsScreen()
+                StockDetailsScreen()
             }
-            composable(route = NavDestination.StockListView.route,) {
+            composable(route = NavDestination.StockListView.route) {
                 StockListScreen()
             }
         }

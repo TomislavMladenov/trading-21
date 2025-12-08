@@ -18,11 +18,11 @@ sealed class NavDestination(
     open val args: Map<String, String> = emptyMap()
 ) {
     data class StockDetails(
-        val vehicleId: String = ""
+        val symbol: String = ""
     ) : NavDestination(
         destination = "stockDetails",
         args = mapOf(
-            Pair(Constants.NavArgs.STOCK_SYMBOL, vehicleId)
+            Pair(Constants.NavArgs.STOCK_SYMBOL, symbol)
         )
     )
 

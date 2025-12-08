@@ -17,31 +17,29 @@ class FakeDataProvider(
     private val jsonParser: Json
 ) {
     private var simulationJob: Job? = null
-    private val scope = CoroutineScope(SupervisorJob() + dispatcher.io())
+//    private val scope = CoroutineScope(SupervisorJob() + dispatcher.io())
+    private val scope = CoroutineScope(dispatcher.io() + SupervisorJob())
 
     fun startSimulation(
         stocks: List<Stock>,
-        onSend: (String) -> Unit,
+        onSend: suspend (String) -> Unit,
     ) {
         stopSimulation()
         simulationJob = scope.launch {
             while (isActive) {
                 // Pick a random stock to update every small interval or batch update
                 // Requirement: Update each symbol every 2 seconds.
-                // We simulate this by iterating the list.
-                val currentList = stocks
-                currentList.forEach { stock ->
+                val newList = stocks.map { stock ->
                     val newPrice = stock.price + Random.nextDouble(-7.0, 7.0)
-
-                    val dto = StockDto(
+                    StockDto(
                         symbol = stock.symbol,
                         name = stock.name,
                         price = newPrice
                     )
-                    val jsonString = jsonParser.encodeToString(dto)
-                    onSend(jsonString)
-                    delay(100) // Simulate network delay
                 }
+                val jsonString = jsonParser.encodeToString<List<StockDto>>(newList)
+                onSend(jsonString)
+
                 delay(2000) // Wait before next cycle
             }
         }

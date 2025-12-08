@@ -2,6 +2,7 @@ package com.example.trading21.feature.stock.datasource.network
 
 import com.example.trading21.base.core.util.DispatcherProvider
 import com.example.trading21.feature.stock.datasource.network.model.StockDto
+import com.example.trading21.feature.stock.datasource.network.model.fromDto
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -69,22 +70,8 @@ class FakeStockApiDataSource(
     private fun handleMessage(text: String) {
         try {
             Timber.d("New data: $text")
-            val dto = jsonParser.decodeFromString<StockDto>(text)
-
-            _stocks.update { currentList ->
-                currentList.map { domainStock ->
-                    if (domainStock.symbol == dto.symbol) {
-                        // MAPPING: We update the price AND ensure the name matches the DTO
-                        domainStock.copy(
-                            name = dto.name,
-                            previousPrice = domainStock.price,
-                            price = dto.price
-                        )
-                    } else {
-                        domainStock
-                    }
-                }
-            }
+            val dto = jsonParser.decodeFromString<List<StockDto>>(text)
+            _stocks.update { it.fromDto(dto) }
         } catch (e: Exception) {
             e.printStackTrace()
         }
