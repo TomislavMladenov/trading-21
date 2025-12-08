@@ -17,7 +17,6 @@ class FakeDataProvider(
     private val jsonParser: Json
 ) {
     private var simulationJob: Job? = null
-//    private val scope = CoroutineScope(SupervisorJob() + dispatcher.io())
     private val scope = CoroutineScope(dispatcher.io() + SupervisorJob())
 
     fun startSimulation(

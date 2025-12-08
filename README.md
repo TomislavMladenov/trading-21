@@ -9,7 +9,7 @@ This project takes advantage of many popular and modern libraries in the Android
 *   **Core & Language:**
     *   [Kotlin](https://kotlinlang.org/): The official language for Android development.
     *   [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html): For asynchronous programming.
-    *   [Koin](https://insert-koin.io/): A pragmatic lightweight dependency injection framework for Kotlin.
+    *   [Hilt](https://dagger.dev/hilt/): A most common and adopted dependency injection framework for Android.
 
 *   **UI (Jetpack Compose):**
     *   [Jetpack Compose](https://developer.android.com/jetpack/compose): Android'''s modern toolkit for building native UI.
@@ -17,7 +17,7 @@ This project takes advantage of many popular and modern libraries in the Android
     *   [Lifecycle-aware components](https://developer.android.com/jetpack/compose/state#lifecycle-aware): For observing data streams in a lifecycle-conscious way.
 
 *   **Architecture:**
-    *   MVI (Model-View-Intent): A unidirectional data flow architecture pattern.
+    *   MVI (Model-View-Intent): A unidirectional data flow design pattern for the presentation layer.
     *   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel): To store and manage UI-related data in a lifecycle conscious way.
     *   [Navigation Component](https://developer.android.com/guide/navigation): To handle navigation between screens.
 
@@ -45,3 +45,11 @@ The project is structured by feature, with a `base` module containing common com
 2.  Open the project in Android Studio.
 3.  Wait for Gradle to sync the project.
 4.  Build and run the `app` configuration on an Android emulator or a physical device.
+
+## 👉 Area to improve
+
+1. Add loading states to the UI.
+2. Proper error handling mechanism with UI actions if needed
+3. Unit test coverage 
+4. Add static code analysis such as Detekt, Klint
+5. CI/CD 
